@@ -1,11 +1,12 @@
 import './App.css';
 import Header from './Header';
 import TodoForm from './TodoForm'
+import Todo from './Todo'
 import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 
 function App() {
-  const [todos, setTodos] = React.useState(
+  const [todos, setTodos] = useState(
     [
       {
         todo: "Foo",
@@ -36,14 +37,18 @@ function App() {
       <TodoForm addTodo={addTodo}/>
       <div>
         {todos.map((todo, index) => {
-          return(
             <Card>
             <Card.Body>
+              <Todo 
+              key={index}
+              index={index}
+              todo={todo}
+              completeTodo={completeTodo}
+              deleteTodo={deleteTodo}
+              />
 
             </Card.Body>
           </Card>
-          )
-          
         })}
       </div>
     </div>
