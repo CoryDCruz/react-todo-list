@@ -10,34 +10,34 @@ function App() {
     [
       {
         todo: "Foo",
-        done: false,
+        done: false
       }
     ])
 
-    const addTodo = text => {
-      const todoList = [...todos, { text }]
-      setTodos(todoList)
-    }
+  const addTodo = text => {
+    const todoList = [...todos, { todo: text }]
+    setTodos(todoList)
+  }
 
-    const completeTodo = index => {
-      const todoList = [...todos]
-      todoList[index].done = true
-      setTodos(todoList)
-    }
+  const completeTodo = index => {
+    const todoList = [...todos]
+    todoList[index].done = true
+    setTodos(todoList)
+  }
 
-    const deleteTodo = index => {
-      const todoList = [...todos]
-      todoList.splice(index, 1)
+  const deleteTodo = index => {
+    const todoList = [...todos]
+    todoList.splice(index, 1)
       setTodos(todoList)
-    }
+  }
 
   return (
     <div className="App">
       <Header/>
       <TodoForm addTodo={addTodo}/>
       <div>
-        {todos.map((todo, index) => {
-            <Card>
+        {todos.map((todo, index) => (
+          <Card>
             <Card.Body>
               <Todo 
               key={index}
@@ -46,10 +46,9 @@ function App() {
               completeTodo={completeTodo}
               deleteTodo={deleteTodo}
               />
-
             </Card.Body>
           </Card>
-        })}
+        ))}
       </div>
     </div>
   );
