@@ -6,13 +6,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 
 function App() {
-  const [todos, setTodos] = useState(
-    [
-      {
-        todo: "Foo",
-        done: false
-      }
-    ])
+  const [todos, setTodos] = useState([])
 
   const addTodo = text => {
     const todoList = [...todos, { todo: text }]
@@ -30,14 +24,14 @@ function App() {
     todoList.splice(index, 1)
       setTodos(todoList)
   }
-
+  
   return (
     <div className="App">
       <Header/>
       <TodoForm addTodo={addTodo}/>
       <div>
         {todos.map((todo, index) => (
-          <Card>
+          <Card bg={'Primary'}>
             <Card.Body>
               <Todo 
               key={index}
